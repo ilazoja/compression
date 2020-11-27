@@ -33,7 +33,6 @@ SCALES_MIN = 0.11
 SCALES_MAX = 256
 SCALES_LEVELS = 64
 
-
 # Output of discriminator, where real and fake are merged into single tensors.
 DiscOutAll = collections.namedtuple(
     "DiscOutAll",
@@ -71,7 +70,7 @@ class Encoder(tf.keras.Sequential):
   def __init__(self,
                name="Encoder",
                num_down=4,
-               num_filters_base=60,
+               num_filters_base=30,
                num_filters_bottleneck=220):
     """Instantiate model.
 
@@ -116,8 +115,8 @@ class Decoder(tf.keras.layers.Layer):
   def __init__(self,
                name="Decoder",
                num_up=4,
-               num_filters_base=60,
-               num_residual_blocks=9,
+               num_filters_base=30,
+               num_residual_blocks=3, # 9
               ):
     """Instantiate layer.
 
